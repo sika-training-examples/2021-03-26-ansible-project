@@ -1,0 +1,17 @@
+- name: Install Python Docker related packages
+  hosts: all
+  tasks:
+    - name: Install Pip3
+      apt:
+        name: python3-pip
+        state: present
+        update_cache: yes
+    - name: Install Docker
+      pip:
+        name:
+          - docker
+          - docker-compose
+- name: Install Docker
+  hosts: all
+  roles:
+    - geerlingguy.docker

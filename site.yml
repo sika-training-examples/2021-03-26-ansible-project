@@ -1,1 +1,3 @@
 - import_playbook: ssh_keys.yml
+- import_playbook: docker.yml
+- import_playbook: apps.yml

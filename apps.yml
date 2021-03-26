@@ -1,0 +1,22 @@
+- name: Deploy Composes
+  hosts: all
+  tags:
+    - apps
+  vars:
+    composes_dir: /apps
+    composes:
+      - repo: https://github.com/ondrejsika/docker-compose-app--example
+        name: demo-app
+        rev: master
+      - repo: https://github.com/ondrejsika/docker-compose-app--example
+        name: demo-app-2
+        rev: new-branch
+        dotenv_content: |
+          PORT=8080
+      - repo: https://github.com/ondrejsika/docker-compose-app--example
+        name: demo-app-3
+        rev: hello-branch
+        dotenv_content: |
+          PORT=8081
+  roles:
+    - compose
