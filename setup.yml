@@ -9,6 +9,8 @@
         user: root
         key: "{{ item }}"
       loop: "{{ root_ssh_keys }}"
+    - hostname:
+        name: "{{ host_id }}"
 
 - name: Install Python Docker related packages
   hosts: web-docker

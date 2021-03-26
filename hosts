@@ -1,9 +1,10 @@
 [proxy]
-vm[0:1].sikademo.com
+vm0.sikademo.com
+vm1.sikademo.com
 
 [web-nginx]
-vm7.sikademo.com
+vm7.sikademo.com host_id=cow
 
 [web-docker]
-vm4.sikademo.com
-vm8.sikademo.com
+vm4.sikademo.com host_id=dog
+vm8.sikademo.com host_id=eel
