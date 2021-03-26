@@ -1,6 +1,6 @@
 ---
-- name: WEB
-  hosts: web
+- name: Web Nginx
+  hosts: web-nginx
   gather_facts: false
   roles:
     - role: website
@@ -11,3 +11,27 @@
           <br>bbb
           <br>ccc
         hostname: "{{ inventory_hostname }}"
+
+- name: Web Docker Cleanup
+  hosts: web-docker
+  gather_facts: false
+  tasks:
+    - name: Stop Nginx
+      systemd:
+        name: nginx
+        state: stopped
+    - name: Uninstall Nginx
+      apt:
+        name: nginx
+        state: absent
+
+- name: Web Docker
+  hosts: web-docker
+  gather_facts: false
+  roles:
+    - role: compose
+      vars:
+        composes:
+          - repo: https://github.com/ondrejsika/docker-compose-app--example
+            name: demo-app
+            rev: master

@@ -1,7 +1,9 @@
 [proxy]
 vm[0:1].sikademo.com
 
-[web]
+[web-nginx]
 vm7.sikademo.com
+
+[web-docker]
 vm4.sikademo.com
 vm8.sikademo.com
