@@ -1,5 +1,17 @@
-- name: Install Python Docker related packages
+---
+- name: Setup
   hosts: all
+  gather_facts: false
+  roles:
+    - tools
+  tasks:
+    - authorized_key:
+        user: root
+        key: "{{ item }}"
+      loop: "{{ root_ssh_keys }}"
+
+- name: Install Python Docker related packages
+  hosts: web-docker
   tasks:
     - name: Install Pip3
       apt:
@@ -11,7 +23,8 @@
         name:
           - docker
           - docker-compose
+
 - name: Install Docker
-  hosts: all
+  hosts: web-docker
   roles:
     - geerlingguy.docker

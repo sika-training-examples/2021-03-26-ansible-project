@@ -1,0 +1,6 @@
+- name: Install basic tools
+  apt:
+    name:
+      - git
+      - vim
+

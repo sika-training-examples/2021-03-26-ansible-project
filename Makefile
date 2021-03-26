@@ -4,6 +4,9 @@ ping:
 site:
 	pipenv run ansible-playbook site.yml
 
+setup:
+	pipenv run ansible-playbook setup.yml
+
 web:
 	pipenv run ansible-playbook web.yml --skip-tags setup
 

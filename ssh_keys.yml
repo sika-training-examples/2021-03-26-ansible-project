@@ -1,9 +1,0 @@
----
-- name: SSH Keys
-  hosts: all
-  gather_facts: false
-  tasks:
-    - authorized_key:
-        user: root
-        key: "{{ item }}"
-      loop: "{{ root_ssh_keys }}"
