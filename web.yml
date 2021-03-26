@@ -1,0 +1,13 @@
+---
+- name: WEB
+  hosts: web
+  gather_facts: false
+  roles:
+    - role: website
+      vars:
+        title: Hello World
+        body: |
+          aaaa
+          <br>bbb
+          <br>ccc
+        hostname: "{{ inventory_hostname }}"
