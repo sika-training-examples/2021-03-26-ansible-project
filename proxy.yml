@@ -1,0 +1,7 @@
+---
+- name: Proxy
+  hosts: proxy
+  vars_files:
+    - vars/haproxy.yml
+  roles:
+    - geerlingguy.haproxy

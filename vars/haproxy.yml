@@ -1,0 +1,6 @@
+haproxy_backend_servers:
+  - name: vm4
+    address: vm4.sikademo.com:80
+  - name: vm7
+    address: vm7.sikademo.com:80
+haproxy_connect_timeout: 500

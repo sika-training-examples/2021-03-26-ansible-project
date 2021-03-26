@@ -9,3 +9,6 @@ web:
 
 web-all:
 	pipenv run ansible-playbook web.yml
+
+proxy:
+	pipenv run ansible-playbook proxy.yml
